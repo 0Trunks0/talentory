@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Wallet</h1>
+        <p>Balance: <span id="wallet-balance">0.00</span> INR</p>
+
+        <h2>Add Funds</h2>
+        <form id="add-funds-form">
+            <label for="amount">Amount (INR):</label>
+            <input type="number" id="amount" name="amount" min="1" required>
+            <button type="submit">Add Funds</button>
+        </form>
+
+        <h2>Transaction History</h2>
+        <ul id="transaction-history"></ul>
+    </div>
+
+    <script src="wallet.js"></script>
+</body>
+</html>
