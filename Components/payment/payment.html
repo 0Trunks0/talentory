@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>
+    <link rel="stylesheet" href="Style.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2rem;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        #google-pay-button {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Your Payment</h1>
+    <p>Please click the button below to proceed with Google Pay.</p>
+    <div id="google-pay-button"></div>
+
+    <script>
+        // Initialize the Google Pay API client
+        const paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
+
+        // Create the Google Pay button
+        const button = paymentsClient.createButton({
+            onClick: onGooglePayButtonClicked
+        });
+
+        // Append the button to the DOM
+        document.getElementById('google-pay-button').appendChild(button);
+
+        // Define the payment request
+        const paymentRequest = {
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            allowedPaymentMethods: [
+                {
+                    type: 'CARD',
+                    parameters: {
+                        allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                        allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                    },
+                    tokenizationSpecification: {
+                        type: 'PAYMENT_GATEWAY',
+                        parameters: {
+                            gateway: 'example', // Replace with your payment gateway
+                            gatewayMerchantId: 'exampleGatewayMerchantId', // Replace with your gateway merchant ID
+                        },
+                    },
+                },
+            ],
+            merchantInfo: {
+                merchantId: '17613812255336763067',
+                merchantName: 'Demo Only',
+            },
+            transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPriceLabel: 'Total',
+                totalPrice: '10.00', // Amount in INR
+                currencyCode: 'INR',
+                countryCode: 'IN',
+            },
+            shippingAddressRequired: true,
+            shippingAddressParameters: {
+                allowedCountryCodes: ['IN'],
+                phoneNumberRequired: true,
+            },
+        };
+
+        // Handle Google Pay button click
+        function onGooglePayButtonClicked() {
+            paymentsClient.loadPaymentData(paymentRequest)
+                .then(paymentData => {
+                    // Handle successful payment
+                    console.log('Payment successful', paymentData);
+                    // You would typically send the paymentData to your server here
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Payment failed', error);
+                });
+        }
+    </script>
+</body>
+</html>
