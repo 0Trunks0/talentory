@@ -18,7 +18,7 @@ export default function Home() {
       <h2 className="text-2xl font-bold mb-4">Our Story</h2>
       <p className="text-gray-700 dark:text-gray-300 mb-4">
         Our website was founded by a team of passionate entrepreneurs who saw the potential in the freelance
-        economy. We've been in the industry for over a decade, and we've witnessed the incredible growth and
+        economy. We&apos;ve been in the industry for over a decade, and we&apos;ve witnessed the incredible growth and
         transformation of the way people work. Our goal is to create a seamless and efficient platform that empowers
         both freelancers and clients to achieve their goals.
       </p>
