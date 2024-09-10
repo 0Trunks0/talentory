@@ -67,9 +67,9 @@ const Navbar = () => {
             {/* <path d="M4 4v16"></path>
             <path d="M9 4v16"></path> */}
           </svg>
-          {/* <span className="text-lg font-bold">yh9sdn</span>  */}
+          <span className="text-lg font-bold tracking-[20px]">TALENTORY</span> 
           {/* @ts-ignore */}
-          <Image src={logoImage} width={150} alt='Logo image'/>
+          {/* <Image src={logoImage} width={150} alt='Logo image'/> */}
         </Link>
         <nav className="hidden lg:flex items-center gap-4">
           <Link href="/work" className="hover:underline">Find Work</Link>
