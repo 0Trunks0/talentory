@@ -4,7 +4,7 @@ export default function Home() {
             <div className="space-y-6">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Get in Touch</h1>
-                    <p className="mt-4 text-muted-foreground">Have a project in mind? Let's discuss how we can work together.</p>
+                    <p className="mt-4 text-muted-foreground">Have a project in mind? Let&apos;s discuss how we can work together.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
